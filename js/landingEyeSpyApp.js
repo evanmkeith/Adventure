@@ -12,7 +12,7 @@ const caught = () => {
     $('#main-div').css({'background-color': '#3d3834', 'background-blend-mode': 'multiply'});
 };
 
-function startTimer(duration, display) {
+/*function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
     let interval = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -29,7 +29,7 @@ function startTimer(duration, display) {
             clearInterval(interval);
         }
     }, 1000);
-}
+}*/
 
 const startGame = (e) => {
     e.stopPropagation;
@@ -38,6 +38,13 @@ const startGame = (e) => {
 
     $('#header').html('<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">01:00</span> minute/seconds.</h2>');
 
+    const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg" width=10%></div>')
+    $('#main-div').append(pictureDiv);
+
+
+    $('#main-div').css({'align-items': 'flex-start'});
+
+    $('#picture').css({'border': 'black'});
     
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {

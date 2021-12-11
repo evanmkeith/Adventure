@@ -33,7 +33,7 @@ main {
     width: 60em;
     height: 33em;
     position: absolute;
-    top: 20%;
+    top: 15%;
     display: flex;
     align-items: center;
     flex-direction: column;

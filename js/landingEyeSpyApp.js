@@ -38,13 +38,24 @@ const startGame = (e) => {
 
     $('#header').html('<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">01:00</span> minute/seconds.</h2>');
 
-    const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg" width=10%></div>')
+
+    const map = $('<div id="map"><img src="https://i.imgur.com/qPoeCZN.png"></div>');
+
+    $('#main-div').append(map);
+    $('#map img').css({'z-index': '0', 'width': '3vw', 'position': 'relative', 'top': '8vh', 'left': '5vw'});
+
+    const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg"></div>');
     $('#main-div').append(pictureDiv);
 
+    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '3vh', 'left': '5vw'});
 
-    $('#main-div').css({'align-items': 'flex-start'});
 
-    $('#picture').css({'border': 'black'});
+    $('#picture').click(function(){
+        $('#picture').css({'position': 'relative', 'right': '-3vw'});
+    })
+
+
+    
     
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
@@ -55,3 +66,4 @@ const startGame = (e) => {
 };
 
 $('#accept').click(startGame);
+

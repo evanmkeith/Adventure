@@ -3,16 +3,18 @@ const startOver = () => {
 }
 
 const caught = () => {
+    $('#main-div').css({});
+    
+    $('#main-div').css({'background-image':'url()','background-color': 'black'});
+
     $('#header').html('<h2>Oh no, you were caught!!</h2>')
 
     $('#main-div').html('<button id="start-over" onClick="window.location.reload();">Start Over</button>');
 
     $('#start-over').css({'position': 'relative', 'top': '30%', 'padding': '1em', 'font-size': '3em'});
-
-    $('#main-div').css({'background-color': '#3d3834', 'background-blend-mode': 'multiply'});
 };
 
-/*function startTimer(duration, display) {
+function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
     let interval = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -29,7 +31,12 @@ const caught = () => {
             clearInterval(interval);
         }
     }, 1000);
-}*/
+}
+
+const foundmap = (e) => {
+    e.stopPropagation;
+
+}
 
 const startGame = (e) => {
     e.stopPropagation;
@@ -49,14 +56,14 @@ const startGame = (e) => {
 
     $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '3vh', 'left': '5vw'});
 
-
-    $('#picture').click(function(){
+    $('#picture').click(function(e){
+        e.stopPropagation;
         $('#picture').css({'position': 'relative', 'right': '-3vw'});
+
+        $('#map').click(foundmap);
     })
 
 
-    
-    
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
         var oneMinute = 10 * 1,

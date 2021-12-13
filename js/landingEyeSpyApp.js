@@ -43,16 +43,24 @@ const foundMap = () => {
 
     $('#header').html("<h2>You've found the map!</h2>");
     $('#main-div').html('');
-    $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)', 'background-size': 'cover' });
-
+    $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)'});
+    $('#main').append($('<button>Continue</button>')); 
+    $('#main button').css({'margin': '10px'});
+    $('#main').css({'flex-direction': 'column'});
 }
 
 const startGame = (e) => {
     e.stopPropagation;
     $('#main-div').html('');
-    $('#main-div').css({'background-image': 'url(https://images.unsplash.com/photo-1496664444929-8c75efb9546f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80)', 'background-size': 'cover' });
+    $('#main-div').css({
+        'background-color': 'black',
+        'background-image': 'url(https://images.unsplash.com/photo-1496664444929-8c75efb9546f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80)', 'background-size': 'auto 100%', 'background-repeat': 'no-repeat',
+        'background-position': 'center'
+    });
 
-    $('#header').html('<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">01:00</span> minute/seconds.</h2>');
+    $('#header').html(
+        '<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">01:00</span> minute/seconds.</h2>'
+        );
 
 
     const map = $('<div id="map"><img src="https://i.imgur.com/qPoeCZN.png"></div>');
@@ -67,8 +75,10 @@ const startGame = (e) => {
 
     $('#picture').click(function(e){
         e.stopPropagation;
-        $('#picture').css({'position': 'relative', 'right': '-3vw'});
-        $('#map').click(foundMap);  
+        $('#picture').css({'position': 'relative', 'right': '-4vw'});
+        $('#map img').css({'z-index': '1'});
+
+        $('#map img').click(foundMap);  
     })
 
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript

@@ -1,3 +1,5 @@
+let mapFound = false;
+
 const startOver = () => {
     startGame();
 }
@@ -26,15 +28,22 @@ function startTimer(duration, display) {
         display.text(minutes + ":" + seconds);
 
         if(--timer < 0){
-            caught(); 
-            console.log('whhyyy?');
-            clearInterval(interval);
+            if(mapFound){
+                clearInterval(interval);
+            } else {
+                caught(); 
+                clearInterval(interval);
+            };
         }
     }, 1000);
 }
 
-const foundmap = (e) => {
-    e.stopPropagation;
+const foundMap = () => {
+    mapFound = true;
+
+    $('#header').html("<h2>You've found the map!</h2>");
+    $('#main-div').html('');
+    $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)', 'background-size': 'cover' });
 
 }
 
@@ -59,10 +68,8 @@ const startGame = (e) => {
     $('#picture').click(function(e){
         e.stopPropagation;
         $('#picture').css({'position': 'relative', 'right': '-3vw'});
-
-        $('#map').click(foundmap);
+        $('#map').click(foundMap);  
     })
-
 
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
@@ -73,4 +80,3 @@ const startGame = (e) => {
 };
 
 $('#accept').click(startGame);
-

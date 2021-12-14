@@ -1,4 +1,5 @@
 let mapFound = false;
+let hasBtn = false;
 
 const startOver = () => {
     startGame();
@@ -44,7 +45,14 @@ const foundMap = () => {
     $('#header').html("<h2>You've found the map!</h2>");
     $('#main-div').html('');
     $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)'});
-    $('#main').append($('<button>Continue</button>')); 
+
+    if(hasBtn){
+        return;
+    } else {
+        $('#main').append($('<button id="continue">Continue</button>')); 
+        hasBtn = true;
+    };
+    
     $('#main button').css({'margin': '10px'});
     $('#main').css({'flex-direction': 'column'});
 }

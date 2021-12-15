@@ -49,11 +49,11 @@ const foundMap = () => {
     if(hasBtn){
         return;
     } else {
-        $('#main').append($('<button id="continue">Continue</button>')); 
+        $('#main').append($('<a id="continue" href="./locateTreasure.html">Continue</a>')); 
         hasBtn = true;
     };
     
-    $('#main button').css({'margin': '10px'});
+    $('#continue').css({'margin': '10px'});
     $('#main').css({'flex-direction': 'column'});
 }
 
@@ -83,6 +83,7 @@ const startGame = (e) => {
 
     $('#picture').click(function(e){
         e.stopPropagation;
+
         $('#picture').css({'position': 'relative', 'right': '-4vw'});
         $('#map img').css({'z-index': '1'});
 

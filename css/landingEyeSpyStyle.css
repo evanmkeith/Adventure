@@ -46,3 +46,23 @@ main {
     padding: 1vw;
     border-radius: 5px;
 }
+
+/*Locate Treasure*/ 
+
+#main-div2 {
+    background-color: green;
+    background-image: url(https://i.imgur.com/3W3pzdA.png);
+    border: 2px solid black;
+    width: 900px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+#box {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background-image: url(https://i.imgur.com/JqLoNGd.png);
+    background-size: cover;
+  }

@@ -14,8 +14,10 @@ let distancePerIteration = 3;
 
 const snake1 = $('.snake');
 const snake2 = $('.snake2');
+const snake3 = $('.snake3');
 const snakeWarn1 = $('.snake-warning');
 const snakeWarn2 = $('.snake-warning2');
+const snakeWarn3 = $('.snake-warning3');
 const treasure = $('#treasure');
 
 
@@ -97,8 +99,22 @@ let gameInterval = setInterval(function() {
             $('header h1').html('Watch out for snakes!');
             $('header h1').css({'color': 'yellow'});
         };
-    }     
-    else {
+    } else if (
+        //snake3 warning
+        box.position()['left'] < snakeWarn3.position()['left'] + snakeWarn3.width() 
+        &&
+        box.position()['left'] + box.width() > snakeWarn3.position()['left']
+        &&
+        box.position()['top'] < snakeWarn3.position()['top'] + snakeWarn3.height() 
+        &&
+        box.height() + box.position()['top'] > snakeWarn3.position()['top']
+    ) {
+        if(box.children('img').length < 1) {
+            box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            $('header h1').html('Watch out for snakes!');
+            $('header h1').css({'color': 'yellow'});
+        };
+    } else {
         $('.alert').remove();
         $('header h1').html('Locate the treasure!');
         $('header h1').css({'color': 'lightgreen'});
@@ -128,6 +144,21 @@ let gameInterval = setInterval(function() {
         box.position()['top'] < snake2.position()['top'] + snake2.height() 
         &&
         box.height() + box.position()['top'] > snake2.position()['top']
+    ) {
+        box.css({'border-color': 'red'});
+        $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').css({'color': 'red'});
+        clearInterval(gameInterval);
+        bitenBySnake();
+    } else if (
+        //snake3 bite
+        box.position()['left'] < snake3.position()['left'] + snake3.width() 
+        &&
+        box.position()['left'] + box.width() > snake3.position()['left']
+        &&
+        box.position()['top'] < snake3.position()['top'] + snake3.height() 
+        &&
+        box.height() + box.position()['top'] > snake3.position()['top']
     ) {
         box.css({'border-color': 'red'});
         $('header h1').html("Oh no! You've been bitten by a snake!");

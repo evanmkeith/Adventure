@@ -75,7 +75,6 @@ main {
 .snake-warning {
     width: 10vw; 
     height: 15vh;
-    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +86,6 @@ main {
 .snake-warning2 {
     width: 10vw; 
     height: 15vh;
-    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,8 +94,18 @@ main {
     left: 60vw;
 }
 
+.snake-warning3 {
+    width: 10vw; 
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 74vh;
+    left: 60vw;
+}
+
 .snake {
-    border: 2px solid white;
     width: 4vw;
     height: 5vh; 
     position: absolute;
@@ -106,7 +114,6 @@ main {
 }
 
 .snake2 {
-    border: 2px solid white;
     width: 4vw;
     height: 5vh; 
     position: absolute;
@@ -114,8 +121,15 @@ main {
     left: 63vw;
 }
 
+.snake3 {
+    width: 4vw;
+    height: 5vh; 
+    position: absolute;
+    top: 79vh;
+    left: 63vw;
+}
+
 #treasure {
-    border: 2px solid white;
     width: 4vw;
     height: 5vh; 
     position: absolute;

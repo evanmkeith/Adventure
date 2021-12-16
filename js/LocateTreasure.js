@@ -1,16 +1,25 @@
 let numLives = 3;
-$('#num-lives').html(`${numLives}`);
+
+const changeBoxBorderColor = (color) => {
+    let newColor = color;
+    return $('#box').css({'border-color': `${newColor}`});
+}
 
 const bitenBySnake = () => {
-    console.log('works');
+    
+    changeBoxBorderColor('red');
+    $('header h1').html("Oh no! You've been bitten by a snake!");
+    $('header h1').css({'color': 'red'});
+
     if(numLives < 1){
         $('#main-div2').append('<div id="start-over"></div>');
-        $('#start-over').html("<h2>You're dead!</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Start Over</a>")
+        $('#start-over').html("<h2>Game Over</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Start Over</a>")
     } else {
         console.log('working');
         numLives -= 1;
-        gameInterval;
         alert("You've lost a life to a snake bite!");
+        $('#box').css({'top': '55vh' , 'left': '48vw'});
+        startGame();
     };
     
 };
@@ -18,6 +27,7 @@ const bitenBySnake = () => {
 const startGame = () => {
 
     $('#startDiv').remove();
+    $('#num-lives').html(`${numLives}`);
     //got help from https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 
     let mainLeftMin = $('#main-div2').position()['left'];
@@ -28,15 +38,6 @@ const startGame = () => {
     let box = $('#box');
     let keysPressed = {};
     let distancePerIteration = 3;
-
-    const snake1 = $('.snake');
-    const snake2 = $('.snake2');
-    const snake3 = $('.snake3');
-    const snakeWarn1 = $('.snake-warning');
-    const snakeWarn2 = $('.snake-warning2');
-    const snakeWarn3 = $('.snake-warning3');
-    const treasure = $('#treasure');
-
 
     function calculateNewLeftValue(oldValue, keyCode1, keyCode2) {
         let newValue = parseInt(oldValue, 10)
@@ -72,6 +73,15 @@ const startGame = () => {
     
     
     let gameInterval = setInterval(function() {
+
+        const snake1 = $('.snake');
+        const snake2 = $('.snake2');
+        const snake3 = $('.snake3');
+        const snakeWarn1 = $('.snake-warning');
+        const snakeWarn2 = $('.snake-warning2');
+        const snakeWarn3 = $('.snake-warning3');
+        const treasure = $('#treasure');
+
         box.css({
             left: function(index ,oldValue) {
                 return calculateNewLeftValue(oldValue, 37, 39);
@@ -93,9 +103,9 @@ const startGame = () => {
             box.height() + box.position()['top'] > snakeWarn1.position()['top']
         ) {
             if(box.children('img').length < 1) {
-                box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
                 $('header h1').html('Watch out for snakes!');
                 $('header h1').css({'color': 'yellow'});
+                changeBoxBorderColor('yellow');
             };
         } else if (
             //snake2 warning
@@ -108,9 +118,9 @@ const startGame = () => {
             box.height() + box.position()['top'] > snakeWarn2.position()['top']
         ) {
             if(box.children('img').length < 1) {
-                box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
                 $('header h1').html('Watch out for snakes!');
                 $('header h1').css({'color': 'yellow'});
+                changeBoxBorderColor('yellow');
             };
         } else if (
             //snake3 warning
@@ -122,16 +132,16 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snakeWarn3.position()['top']
         ) {
-            if(box.children('img').length < 1) {
-                box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            if(box.children('img').length < 1) { 
                 $('header h1').html('Watch out for snakes!');
                 $('header h1').css({'color': 'yellow'});
+                changeBoxBorderColor('yellow');
             };
         } else {
-            $('.alert').remove();
             $('header h1').html('Locate the treasure!');
             $('header h1').css({'color': 'lightgreen'});
-        };
+            changeBoxBorderColor('black');
+        } 
     
         if(
             //snake1 bite
@@ -143,9 +153,6 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snake1.position()['top']
         ) {
-            box.css({'border-color': 'red'});
-            $('header h1').html("Oh no! You've been bitten by a snake!");
-            $('header h1').css({'color': 'red'});
             clearInterval(gameInterval);
             bitenBySnake();
         } else if (
@@ -158,9 +165,6 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snake2.position()['top']
         ) {
-            box.css({'border-color': 'red'});
-            $('header h1').html("Oh no! You've been bitten by a snake!");
-            $('header h1').css({'color': 'red'});
             clearInterval(gameInterval);
             bitenBySnake();
         } else if (
@@ -173,12 +177,9 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snake3.position()['top']
         ) {
-            box.css({'border-color': 'red'});
-            $('header h1').html("Oh no! You've been bitten by a snake!");
-            $('header h1').css({'color': 'red'});
             clearInterval(gameInterval);
             bitenBySnake();
-        };
+        } 
     
         if(
             //found treasure

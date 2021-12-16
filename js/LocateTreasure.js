@@ -17,9 +17,6 @@ const snake2 = $('.snake2');
 const snakeWarn1 = $('.snake-warning');
 const snakeWarn2 = $('.snake-warning2');
 
-let warned = false;
-let foundTreasure = false;
-
 
 function calculateNewLeftValue(oldValue, keyCode1, keyCode2) {
     let newValue = parseInt(oldValue, 10)
@@ -63,11 +60,8 @@ setInterval(function() {
         }
     });
 
-    console.log($('#box').children('img').length);
-
-   
     if(
-        //snake warning 1
+        //snake1 warning 
         box.position()['left'] < snakeWarn1.position()['left'] + snakeWarn1.width() 
         &&
         box.position()['left'] + box.width() > snakeWarn1.position()['left']
@@ -76,13 +70,48 @@ setInterval(function() {
         &&
         box.height() + box.position()['top'] > snakeWarn1.position()['top']
     ) {
-        //warned = true;
         if(box.children('img').length < 1) {
-            return $('#box').append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            return box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
         };
-    } else {$('.alert').remove()};
-    
+    } else if (
+        //snake2 warning
+        box.position()['left'] < snakeWarn2.position()['left'] + snakeWarn2.width() 
+        &&
+        box.position()['left'] + box.width() > snakeWarn2.position()['left']
+        &&
+        box.position()['top'] < snakeWarn2.position()['top'] + snakeWarn2.height() 
+        &&
+        box.height() + box.position()['top'] > snakeWarn2.position()['top']
+    ) {
+        if(box.children('img').length < 1) {
+            return box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+        };
+    }     
+    else {$('.alert').remove()};
 
+    if(
+        //snake1 bite
+        box.position()['left'] < snake1.position()['left'] + snake1.width() 
+        &&
+        box.position()['left'] + box.width() > snake1.position()['left']
+        &&
+        box.position()['top'] < snake1.position()['top'] + snake1.height() 
+        &&
+        box.height() + box.position()['top'] > snake1.position()['top']
+    ) {
+        box.css({'border-color': 'red'});
+    } else if (
+        //snake2 bite
+        box.position()['left'] < snake2.position()['left'] + snake2.width() 
+        &&
+        box.position()['left'] + box.width() > snake2.position()['left']
+        &&
+        box.position()['top'] < snake2.position()['top'] + snake2.height() 
+        &&
+        box.height() + box.position()['top'] > snake2.position()['top']
+    ) {
+        box.css({'border-color': 'red'});
+    };
 }, 20);
 
 

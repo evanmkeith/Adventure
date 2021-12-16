@@ -66,6 +66,9 @@ main {
     background-image: url(https://i.imgur.com/JqLoNGd.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    border: 2px solid;
+    border-color: ""; 
+    border-radius: 3px;
 }
 
 .snake-warning {
@@ -96,12 +99,18 @@ main {
     border: 2px solid white;
     width: 4vw;
     height: 5vh; 
+    position: absolute;
+    top: 65vh;
+    left: 33vw;
 }
 
 .snake2 {
     border: 2px solid white;
     width: 4vw;
     height: 5vh; 
+    position: absolute;
+    top: 45vh;
+    left: 63vw;
 }
 
 #treasure {

@@ -12,6 +12,15 @@ let maxLeft = 1120;
 let keysPressed = {};
 let distancePerIteration = 3;
 
+const snake1 = $('.snake');
+const snake2 = $('.snake2');
+const snakeWarn1 = $('.snake-warning');
+const snakeWarn2 = $('.snake-warning2');
+
+let warned = false;
+let foundTreasure = false;
+
+
 function calculateNewLeftValue(oldValue, keyCode1, keyCode2) {
     let newValue = parseInt(oldValue, 10)
                    - (keysPressed[keyCode1] ? distancePerIteration : 0)
@@ -53,4 +62,69 @@ setInterval(function() {
             return calculateNewTopValue(oldValue, 38, 40);
         }
     });
+
+    console.log($('#box').children('img').length);
+
+   
+    if(
+        //snake warning 1
+        box.position()['left'] < snakeWarn1.position()['left'] + snakeWarn1.width() 
+        &&
+        box.position()['left'] + box.width() > snakeWarn1.position()['left']
+        &&
+        box.position()['top'] < snakeWarn1.position()['top'] + snakeWarn1.height() 
+        &&
+        box.height() + box.position()['top'] > snakeWarn1.position()['top']
+    ) {
+        //warned = true;
+        if(box.children('img').length < 1) {
+            return $('#box').append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+        };
+    } else {$('.alert').remove()};
+    
+
 }, 20);
+
+
+// <img id="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">
+//got help from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+/*const snake1 = $('.snake');
+const snake2 = $('.snake2');
+const snakeWarn1 = $('.snake-warning');
+const snakeWarn2 = $('.snake-warning2');
+
+const indi = $('#box');
+
+console.log(snake1.position()['left']);
+
+if(
+    //snake warning 1
+    snake1.position()['left'] < indi.position()['left'] + indi.width() 
+    &&
+    snake1.position()['left'] + snake1.width() > indi.position()['left']
+    &&
+    snake1.position()['top'] < indi.position()['top'] + indi.height() 
+    &&
+    snake1.height() + snake1.position()['top'] > indi.position()['top']
+) {
+    $('#box').append('<img id="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+} else if (){
+    //snake warning 2
+} else if (){
+    //snake1 bite
+} else if (){
+    //snake2 bite
+}
+
+rect2.bind("EnterFrame", function () {
+    if (rect1.x < box.x + box.w &&
+        rect1.x + rect1.w > box.x &&
+        rect1.y < box.y + box.h &&
+        rect1.h + rect1.y > box.y) {
+        // collision detected!
+        this.color("green");
+    } else {
+        // no collision
+        this.color("blue");
+    }
+});*/

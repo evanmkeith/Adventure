@@ -16,7 +16,8 @@ header {
     display: flex;
     justify-content: center;
     background-color:black;
-    color: #50823e;
+    color: lightgreen;
+    height: 10vh;
 }
 
 main { 
@@ -118,8 +119,8 @@ main {
     width: 4vw;
     height: 5vh; 
     position: absolute;
-    top: 80vh;
-    left: 75vw;
+    top: 83vh;
+    left: 78vw;
 }
 
 

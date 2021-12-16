@@ -16,6 +16,7 @@ const snake1 = $('.snake');
 const snake2 = $('.snake2');
 const snakeWarn1 = $('.snake-warning');
 const snakeWarn2 = $('.snake-warning2');
+const treasure = $('#treasure');
 
 
 function calculateNewLeftValue(oldValue, keyCode1, keyCode2) {
@@ -50,7 +51,12 @@ function calculateNewTopValue(oldValue, keyCode1, keyCode2) {
 $(window).keydown(function(event) { keysPressed[event.which] = true; });
 $(window).keyup(function(event) { keysPressed[event.which] = false; });
 
-setInterval(function() {
+const bitenBySnake = () => {
+    $('#main-div2').append('<div id="start-over"></div>');
+    $('#start-over').append('<h2')
+}
+
+let gameInterval = setInterval(function() {
     box.css({
         left: function(index ,oldValue) {
             return calculateNewLeftValue(oldValue, 37, 39);
@@ -60,6 +66,7 @@ setInterval(function() {
         }
     });
 
+    //got help from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection\
     if(
         //snake1 warning 
         box.position()['left'] < snakeWarn1.position()['left'] + snakeWarn1.width() 
@@ -71,7 +78,9 @@ setInterval(function() {
         box.height() + box.position()['top'] > snakeWarn1.position()['top']
     ) {
         if(box.children('img').length < 1) {
-            return box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            $('header h1').html('Watch out for snakes!');
+            $('header h1').css({'color': 'yellow'});
         };
     } else if (
         //snake2 warning
@@ -84,10 +93,16 @@ setInterval(function() {
         box.height() + box.position()['top'] > snakeWarn2.position()['top']
     ) {
         if(box.children('img').length < 1) {
-            return box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            box.append('<img class="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
+            $('header h1').html('Watch out for snakes!');
+            $('header h1').css({'color': 'yellow'});
         };
     }     
-    else {$('.alert').remove()};
+    else {
+        $('.alert').remove();
+        $('header h1').html('Locate the treasure!');
+        $('header h1').css({'color': 'lightgreen'});
+    };
 
     if(
         //snake1 bite
@@ -100,6 +115,10 @@ setInterval(function() {
         box.height() + box.position()['top'] > snake1.position()['top']
     ) {
         box.css({'border-color': 'red'});
+        $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').css({'color': 'red'});
+        clearInterval(gameInterval);
+        bitenBySnake();
     } else if (
         //snake2 bite
         box.position()['left'] < snake2.position()['left'] + snake2.width() 
@@ -111,49 +130,25 @@ setInterval(function() {
         box.height() + box.position()['top'] > snake2.position()['top']
     ) {
         box.css({'border-color': 'red'});
+        $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').css({'color': 'red'});
+        clearInterval(gameInterval);
+        bitenBySnake();
     };
+
+    if(
+        //found treasure
+        box.position()['left'] < treasure.position()['left'] + treasure.width() 
+        &&
+        box.position()['left'] + box.width() > treasure.position()['left']
+        &&
+        box.position()['top'] < treasure.position()['top'] + treasure.height() 
+        &&
+        box.height() + box.position()['top'] > treasure.position()['top']
+    ) {
+        box.css({'border-color': 'green'});
+        $('header h1').html("Congratulations! You've located the treasure!!");
+        $('header h1').css({'color': 'green'});
+    };
+
 }, 20);
-
-
-// <img id="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">
-//got help from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-/*const snake1 = $('.snake');
-const snake2 = $('.snake2');
-const snakeWarn1 = $('.snake-warning');
-const snakeWarn2 = $('.snake-warning2');
-
-const indi = $('#box');
-
-console.log(snake1.position()['left']);
-
-if(
-    //snake warning 1
-    snake1.position()['left'] < indi.position()['left'] + indi.width() 
-    &&
-    snake1.position()['left'] + snake1.width() > indi.position()['left']
-    &&
-    snake1.position()['top'] < indi.position()['top'] + indi.height() 
-    &&
-    snake1.height() + snake1.position()['top'] > indi.position()['top']
-) {
-    $('#box').append('<img id="alert" src="../images/Screen Shot 2021-12-15 at 4.18.10 PM.png">');
-} else if (){
-    //snake warning 2
-} else if (){
-    //snake1 bite
-} else if (){
-    //snake2 bite
-}
-
-rect2.bind("EnterFrame", function () {
-    if (rect1.x < box.x + box.w &&
-        rect1.x + rect1.w > box.x &&
-        rect1.y < box.y + box.h &&
-        rect1.h + rect1.y > box.y) {
-        // collision detected!
-        this.color("green");
-    } else {
-        // no collision
-        this.color("blue");
-    }
-});*/

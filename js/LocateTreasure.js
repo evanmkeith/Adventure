@@ -7,15 +7,13 @@ const changeBoxBorderColor = (color) => {
 
 const bitenBySnake = () => {
     
-    changeBoxBorderColor('red');
-    $('header h1').html("Oh no! You've been bitten by a snake!");
-    $('header h1').css({'color': 'red'});
-
     if(numLives < 1){
+        changeBoxBorderColor('red');
+         $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').css({'color': 'red'});
         $('#main-div2').append('<div id="start-over"></div>');
         $('#start-over').html("<h2>Game Over</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Start Over</a>")
     } else {
-        console.log('working');
         numLives -= 1;
         alert("You've lost a life to a snake bite!");
         $('#box').css({'top': '55vh' , 'left': '48vw'});
@@ -23,6 +21,17 @@ const bitenBySnake = () => {
     };
     
 };
+
+const foundTreasure = () =>{
+    const found = $("<div id='foundTres'><img src='https://i.imgur.com/k7TGyUH.jpg'><p>You've done it! You've finally found the treasure! But what's this, you hear something behind you...</p><button id='continue'>Continue</button></div>"); 
+
+    $('#main-div2').prepend(found);
+
+    $('#continue').click(function(){
+        location.href = './battle.html';
+    })
+
+}
 
 const startGame = () => {
 
@@ -194,6 +203,8 @@ const startGame = () => {
             box.css({'border-color': 'green'});
             $('header h1').html("Congratulations! You've located the treasure!!");
             $('header h1').css({'color': 'green'});
+            clearInterval(gameInterval);
+            foundTreasure();
         };
     
     }, 20);

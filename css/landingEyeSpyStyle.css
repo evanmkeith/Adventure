@@ -135,7 +135,7 @@ main {
     height: 5vh; 
     position: absolute;
     top: 83vh;
-    left: 78vw;
+    left: 68vw;
 }
 
 
@@ -192,4 +192,33 @@ nav div {
     width: 50vw;
     height: 30vh;
     padding: 2vh;
+}
+
+#foundTres img {
+    width: 40vw;
+}
+
+#foundTres {
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+    border-radius: 5px;
+    border: 2px solid black;
+    z-index: 1;
+}
+
+/*Battle*/
+
+#main-div3 {
+    background-color: green;
+    background-image: url(https://i.imgur.com/3W3pzdA.png);
+    border: 2px solid black;
+    width: 68vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -83,10 +83,8 @@ const startGame = (e) => {
 
     $('#picture').click(function(e){
         e.stopPropagation;
-
-        $('#picture').css({'position': 'relative', 'right': '-4vw'});
-        $('#map img').css({'z-index': '1'});
-
+        //move picture 
+        $('#picture img').animate({left: '9vw'}, 500);
         $('#map img').click(foundMap);  
     })
 

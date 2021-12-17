@@ -4,32 +4,37 @@ const badGuy = $('#bad-guy');
 let moveTop = parseInt(badGuy.css('top'));
 let moveLeft = parseInt(badGuy.css('left'));
 
+//const youWin 
+
+
 const defend = () => {
     let defndBtn = $("<button id='defend'>Quick, defened yourself!</button>")
     $('#main').append(defndBtn);
+
+    indi.css({'z-index': '1'});
     
     let battle = setInterval(function(){
 
         $('#defend').click(function(){
-            indi.css({'background-image': "url('https://i.imgur.com/b1Ap0MP.png')"}); 
+            indi.css({'background-image': "url('https://i.imgur.com/XTzhLMb.png')"}); 
             console.log('happening');
             clearInterval(battle);
             //help from https://codepen.io/seeker5084/pen/VMQGwX
+            
             badGuy.animate(
-                { deg: -90 },
-                {
-                  duration: 1200,
-                  step: function(now) {
-                    $(this).css({ transform: 'rotate(' + now + 'deg)' });
-                  }
+            { deg: 90 },
+            {
+                duration: 1200,
+                step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)' });
                 }
-              );
+            });
+
+            badGuy.css({'top': `27vh`});
+
         });
 
-        moveTop -= 1;
-        moveLeft += 2;
-
-        badGuy.css({'top': `${moveTop}px`});
+        moveLeft -= 3;
         badGuy.css({'left': `${moveLeft}px`});
 
         if(
@@ -45,7 +50,7 @@ const defend = () => {
             console.log('youdead!');
             clearInterval(battle);
         };
-    }, 40);
+    }, 25);
     
 }
 

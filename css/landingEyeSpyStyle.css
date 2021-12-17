@@ -234,28 +234,28 @@ body {
 
 #indi {
     border-radius: 10px;
-    background-image: url('https://i.imgur.com/XvO8k1u.png');
+    background-image: url('https://i.imgur.com/ZxeL9aj.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 8vw;
+    width: 10vw;
     height: 35vh;
     position: relative;
-    top: -15vh;
-    left: 30vw;
+    top: 15vh;
+    left: -10vw;
 }
 
 #bad-guy {
     border-radius: 10px;
-    background-image: url('https://i.imgur.com/H2IPQ2i.jpg');
+    background-image: url('https://i.imgur.com/9TN2AbB.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 28vw;
-    height: 70vh;
+    width: 15vw;
+    height: 34vh;
     position: relative;
     top: 15vh;
-    left: -20vw;
+    left: 15vw;
 }
 
 #defend {
-    margin: 10px 0 0 0; 
+    margin: 20px 0 0 0; 
 }

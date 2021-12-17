@@ -9,8 +9,16 @@ const youWin = () => {
     if($('#main').children().length < 2){
         $('#main').append(youWinDiv);
     };
+    indi.css({'background-image': "url('https://i.imgur.com/ZxeL9aj.png')"});
 };
 
+const youLose = () => {
+    $('#defend').remove();
+    const youLoseDiv = $(`<div id="you-lose"><h2>You've been killed and your treasure has been taken!</h2><a href="./landingEyeSpy.html">Try Again?</a></div>`);
+    if($('#main').children().length < 2){
+        $('#main').append(youLoseDiv);
+    };
+};
 
 const defend = () => {
     let defndBtn = $("<button id='defend'>Quick, defened yourself!</button>")
@@ -41,9 +49,8 @@ const defend = () => {
             &&
             badGuy.height() + badGuy.position()['top'] > indi.position()['top']
         ) {
-            badGuy.css({'border-color': 'red'});
-            console.log('youdead!');
             clearInterval(battle);
+            indi.fadeOut(2000).promise().done(function(){youLose()});
         };
     }, 25);
     

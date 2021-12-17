@@ -1,14 +1,20 @@
 const indi = $('#indi'); 
 const badGuy = $('#bad-guy');
 
-let moveTop = parseInt(badGuy.css('top'));
 let moveLeft = parseInt(badGuy.css('left'));
 
-//const youWin 
+const youWin = () => {
+    $('#defend').remove();
+    const youWinDiv = $('<div id="you-win"><h2>Congratulations, You Win!!!</h2><a href="./landingEyeSpy.html">Play Again</a></div>');
+    if($('#main').children().length < 2){
+        $('#main').append(youWinDiv);
+    };
+};
 
 
 const defend = () => {
     let defndBtn = $("<button id='defend'>Quick, defened yourself!</button>")
+
     $('#main').append(defndBtn);
 
     indi.css({'z-index': '1'});
@@ -20,18 +26,7 @@ const defend = () => {
             console.log('happening');
             clearInterval(battle);
             //help from https://codepen.io/seeker5084/pen/VMQGwX
-            
-            badGuy.animate(
-            { deg: 90 },
-            {
-                duration: 1200,
-                step: function(now) {
-                $(this).css({ transform: 'rotate(' + now + 'deg)' });
-                }
-            });
-
-            badGuy.css({'top': `27vh`});
-
+            badGuy.fadeOut(2000).promise().done(function(){youWin()});
         });
 
         moveLeft -= 3;

@@ -42,7 +42,7 @@ function startTimer(duration, display) {
 const foundMap = () => {
     mapFound = true;
 
-    $('#header').html("<h2>You've found the map!</h2>");
+    $('#header').html("<h2>You found the map!</h2>");
     $('#main-div').html('');
     $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)'});
 
@@ -67,7 +67,7 @@ const startGame = (e) => {
     });
 
     $('#header').html(
-        '<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">01:00</span> minute/seconds.</h2>'
+        '<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">00:30</span> seconds.</h2>'
         );
 
 
@@ -79,7 +79,7 @@ const startGame = (e) => {
     const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg"></div>');
     $('#main-div').append(pictureDiv);
 
-    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '3vh', 'left': '5vw'});
+    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '-.5vh', 'left': '4vw'});
 
     $('#picture').click(function(e){
         e.stopPropagation;
@@ -90,9 +90,9 @@ const startGame = (e) => {
 
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
-        var oneMinute = 10 * 1,
+        var thirtySec = 30 * 1,
             display = $('#timer');
-        startTimer( oneMinute, display);
+        startTimer( thirtySec, display);
     });
 };
 

@@ -7,17 +7,27 @@ const changeBoxBorderColor = (color) => {
 
 const bitenBySnake = () => {
     
-    if(numLives < 1){
+    if(numLives === 1){
+        $('nav').html('');
         changeBoxBorderColor('red');
-         $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').html("Oh no! You've been bitten by a snake!");
         $('header h1').css({'color': 'red'});
         $('#main-div2').append('<div id="start-over"></div>');
         $('#start-over').html("<h2>Game Over</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Start Over</a>")
     } else {
         numLives -= 1;
-        alert("You've lost a life to a snake bite!");
+        let tryBtn = 'Try Again'
+        
+        if(numLives === 1){
+            tryBtn = 'Last Chance';
+        };
+
+        $('header h1').html("Oh no! You've been bitten by a snake!");
+        $('header h1').css({'color': 'red'});
+        $('#main-div2').append('<div id="try-again"></div>');
+        $('#try-again').html(`<h2>You've lost a life!</h2><img src='https://i.imgur.com/84iHMq3.png'><button id='try-again-btn'>${tryBtn}</button>`);
         $('#box').css({'top': '55vh' , 'left': '48vw'});
-        startGame();
+        $('#try-again-btn').click(function(){startGame()});
     };
     
 };
@@ -36,6 +46,7 @@ const foundTreasure = () =>{
 const startGame = () => {
 
     $('#startDiv').remove();
+    $('#try-again').remove();
     $('#num-lives').html(`${numLives}`);
     //got help from https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 

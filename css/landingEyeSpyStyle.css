@@ -18,6 +18,8 @@ header {
     justify-content: center;
     background-color:black;
     color: lightgreen;
+    position: relative;
+    top: 3vh;
     height: 10vh;
     width: 90vw;
     border: 5px solid greenyellow; 
@@ -52,6 +54,13 @@ main {
     margin: 1vw;
     padding: 1vw;
     border-radius: 5px;
+}
+
+#timer {
+    color: yellow;
+    border: 1px solid yellow;
+    margin: 3px;
+    padding: 2px;
 }
 
 /*Locate Treasure*/ 
@@ -152,8 +161,9 @@ main {
 }
 
 #start-over {
-    border: 2px solid black;
-    background-color: green;
+    border: 5px solid greenyellow;
+    background-color: black;
+    color: white;
     width: 25vw;
     height: 20vh;
     border-radius: 5px;
@@ -161,12 +171,31 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
 #start-over-btn {
     border: 2px solid black; 
     text-decoration: none;
 }
+
+#try-again {
+    border: 5px solid greenyellow;
+    background-color: black;
+    width: 25vw;
+    height: 40vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+#try-again img {
+    width: 8vw;
+}
+
 
 nav {
     display: flex;
@@ -177,7 +206,7 @@ nav div {
     border: 2px solid greenyellow;
     color: white;
     position: relative; 
-    top: 4vh;
+    top: 5vh;
     background-color: black;
     width: 10vw;
     height: 5vh;
@@ -208,14 +237,14 @@ nav div {
 }
 
 #foundTres {
-    background-color: green;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2vw;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid greenyellow;
     z-index: 1;
 }
 

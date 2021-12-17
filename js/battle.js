@@ -50,7 +50,7 @@ const defend = () => {
             badGuy.height() + badGuy.position()['top'] > indi.position()['top']
         ) {
             clearInterval(battle);
-            indi.fadeOut(2000).promise().done(function(){youLose()});
+            indi.fadeOut(1000).promise().done(function(){youLose()});
         };
     }, 25);
     

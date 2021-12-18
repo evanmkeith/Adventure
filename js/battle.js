@@ -5,7 +5,7 @@ let moveLeft = parseInt(badGuy.css('left'));
 
 const youWin = () => {
     $('#defend').remove();
-    const youWinDiv = $(`<div id="you-win"><h2>Well done!</h2><p>Throughout the journey you have kept an eye out for your dad but haven't seen him anywhere but believe that he had to have made it as far as you did. You see something that looks like it could have been your father's and go to investigate.</p><a href="">Continue</a></div>`);
+    const youWinDiv = $(`<div id="you-win"><h2>Well done!</h2><p>You've yet to see any signs of your father, but believe that he had to have made it as far as you did. Out of the cortner of your eye, you see something that looks like it could have been your father's and go to investigate.</p><a href="./findFather.html">Continue</a></div>`);
     $('header h1').html(`You've successfully defended yourself.`)
     if($('#main').children().length < 2){
         $('#main').append(youWinDiv);
@@ -15,7 +15,7 @@ const youWin = () => {
 
 const youLose = () => {
     $('#defend').remove();
-    const youLoseDiv = $(`<div id="you-lose"><h2>You've been killed and your treasure has been taken!</h2><a href="./landingEyeSpy.html">Try Again?</a></div>`);
+    const youLoseDiv = $(`<div id="you-lose"><h2>You've been killed!</h2><a href="./landingEyeSpy.html">Try Again?</a></div>`);
     if($('#main').children().length < 2){
         $('#main').append(youLoseDiv);
     };

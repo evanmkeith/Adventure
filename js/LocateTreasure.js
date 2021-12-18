@@ -1,6 +1,6 @@
 let numLives = 3;
 
-const changeBoxBorderColor = (color) => {
+const changeBoxBorderColor = (color='black') => {
     let newColor = color;
     return $('#box').css({'border-color': `${newColor}`});
 }
@@ -58,6 +58,14 @@ const startGame = () => {
     let box = $('#box');
     let keysPressed = {};
     let distancePerIteration = 3;
+
+    const nearSnake = () => {
+        if(box.children('img').length < 1) {
+            $('header h1').html('Watch out for snakes!');
+            $('header h1').css({'color': 'yellow'});
+            changeBoxBorderColor('yellow');
+        };
+    };
 
     function calculateNewLeftValue(oldValue, keyCode1, keyCode2) {
         let newValue = parseInt(oldValue, 10)
@@ -122,11 +130,7 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snakeWarn1.position()['top']
         ) {
-            if(box.children('img').length < 1) {
-                $('header h1').html('Watch out for snakes!');
-                $('header h1').css({'color': 'yellow'});
-                changeBoxBorderColor('yellow');
-            };
+            nearSnake();
         } else if (
             //snake2 warning
             box.position()['left'] < snakeWarn2.position()['left'] + snakeWarn2.width() 
@@ -137,11 +141,7 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snakeWarn2.position()['top']
         ) {
-            if(box.children('img').length < 1) {
-                $('header h1').html('Watch out for snakes!');
-                $('header h1').css({'color': 'yellow'});
-                changeBoxBorderColor('yellow');
-            };
+            nearSnake();
         } else if (
             //snake3 warning
             box.position()['left'] < snakeWarn3.position()['left'] + snakeWarn3.width() 
@@ -152,11 +152,7 @@ const startGame = () => {
             &&
             box.height() + box.position()['top'] > snakeWarn3.position()['top']
         ) {
-            if(box.children('img').length < 1) { 
-                $('header h1').html('Watch out for snakes!');
-                $('header h1').css({'color': 'yellow'});
-                changeBoxBorderColor('yellow');
-            };
+            nearSnake();
         } else {
             $('header h1').html('Locate the crystal!');
             $('header h1').css({'color': 'lightgreen'});

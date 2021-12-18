@@ -1,20 +1,14 @@
 let mapFound = false;
-let hasBtn = false;
-
-const startOver = () => {
-    startGame();
-}
 
 const caught = () => {
+    $('.lives').remove();
     $('#main-div').css({});
     
     $('#main-div').css({'background-image':'url()','background-color': 'black'});
 
     $('#header').html('<h2>Oh no, you were caught!!</h2>')
 
-    $('#main-div').html('<button id="start-over" onClick="window.location.reload();">Try Again</button>');
-
-    $('#start-over').css({'font-size': '2em'});
+    $('#main-div').html('<button id="start-over" onClick="window.location.reload()">Try Again</button>');
 };
 
 function startTimer(duration, display) {
@@ -27,7 +21,6 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.text(minutes + ":" + seconds);
-
         if(--timer < 0){
             if(mapFound){
                 clearInterval(interval);
@@ -41,17 +34,14 @@ function startTimer(duration, display) {
 
 const foundMap = () => {
     mapFound = true;
+    $('.lives').remove();
+    $('#main-div').css({'top': '0'});
 
     $('#header').html("<h2>You found the map!</h2>");
     $('#main-div').html('');
     $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)'});
 
-    if(hasBtn){
-        return;
-    } else {
-        $('#main').append($('<a id="continue" href="./locateTreasure.html">Continue</a>')); 
-        hasBtn = true;
-    };
+    $('#main').append($('<a id="continue" href="./locateTreasure.html">Continue</a>')); 
     
     $('#continue').css({'margin': '10px'});
     $('#main').css({'flex-direction': 'column'});
@@ -59,6 +49,8 @@ const foundMap = () => {
 
 const startGame = (e) => {
     e.stopPropagation;
+    $('#main-div').css({'top': '-6vh'});
+    timer();
     $('#accept').remove();
     $('#main-div').html('');
     $('#main-div').css({
@@ -68,7 +60,7 @@ const startGame = (e) => {
     });
 
     $('#header').html(
-        `<h2>Quick! Locate a map in your father's study before your mom sees you.<br> You only have <span id="timer">00:30</span> seconds.</h2>`
+        `<h2>Quick! Locate a map in your father's study before your mom sees you.<br> You only have 30 seconds.</h2>`
         );
 
 
@@ -91,10 +83,15 @@ const startGame = (e) => {
 
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
-        var thirtySec = 30 * 1,
+        var thirtySec = 5 * 1,
             display = $('#timer');
         startTimer( thirtySec, display);
     });
 };
 
-$('#accept').click(startGame);
+const timer = () => {
+    const timer = $(`<div class="lives"><h3>Time left: <span id="timer">00:30</span></h3></div>`);
+    $('nav').append(timer);
+}
+
+$('#accept').click(timer, startGame);

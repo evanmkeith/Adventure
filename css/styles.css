@@ -58,7 +58,7 @@ main {
 button {
     background-color: black;
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
     border: 2px solid white;
     border-radius: 5px;
 }
@@ -389,4 +389,50 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+    top: 6vh;
+}
+
+#indiAfter {
+    /*background-image: url('https://i.imgur.com/uf3BIC8.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 15vw;
+    height: 35vh;*/
+    position: relative;
+    top: 15vh;
+    left: -25vw;
+}
+
+#indiAfter img {
+    vertical-align: middle;
+	float: left;
+}
+
+#dads-stuff {
+    background-image: url('https://i.imgur.com/fyekKjA.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 30vw;
+    height: 35vh;
+    position: relative;
+    top: 15vh;
+    left: 5vw;
+}
+
+#saDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 4px solid greenyellow;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    width: 30vw;
+    height: 25vh;
+    position: absolute; 
+    top: 15vh;
+    left: 50vw;
+    padding: 2vh;
 }

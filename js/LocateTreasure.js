@@ -13,7 +13,7 @@ const bitenBySnake = () => {
         $('header h1').html("Oh no! You've been bitten by a snake!");
         $('header h1').css({'color': 'red'});
         $('#main-div2').append('<div id="start-over"></div>');
-        $('#start-over').html("<h2>Game Over</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Start Over</a>")
+        $('#start-over').html("<h2>Game Over</h2><a id='start-over-btn' href='./landingEyeSpy.html'>Try Again</a>")
     } else {
         numLives -= 1;
         let tryBtn = 'Try Again'
@@ -33,7 +33,7 @@ const bitenBySnake = () => {
 };
 
 const foundTreasure = () =>{
-    const found = $("<div id='foundTres'><img src='https://i.imgur.com/k7TGyUH.jpg'><p>You've done it! You've finally found the treasure! But what's this, you hear something behind you...</p><button id='continue'>Continue</button></div>"); 
+    const found = $("<div id='foundTres'><img src='https://i.imgur.com/JI8QP5W.png'><p>You've done it! You've finally found the crystal! But what's this, you hear something behind you...</p><button id='continue'>Continue</button></div>"); 
 
     $('#main-div2').prepend(found);
 
@@ -158,7 +158,7 @@ const startGame = () => {
                 changeBoxBorderColor('yellow');
             };
         } else {
-            $('header h1').html('Locate the treasure!');
+            $('header h1').html('Locate the crystal!');
             $('header h1').css({'color': 'lightgreen'});
             changeBoxBorderColor('black');
         } 
@@ -212,7 +212,7 @@ const startGame = () => {
             box.height() + box.position()['top'] > treasure.position()['top']
         ) {
             box.css({'border-color': 'green'});
-            $('header h1').html("Congratulations! You've located the treasure!!");
+            $('header h1').html("Congratulations! You've located the crystal!!");
             $('header h1').css({'color': 'green'});
             clearInterval(gameInterval);
             foundTreasure();
@@ -221,7 +221,7 @@ const startGame = () => {
     }, 20);
 }
 
-const startDiv = $("<div id='startDiv'><p>After obtaining the map, you followed it to a remote island and go on a perlous journey to find the location of the treasure. You've now reached the place where it ought to be, but will have to search around in order to find it. Use the arrow keys on your keyboard to move throughout the jungle to locate the treasure - but be careful! Poisonous snakes inhabit the island and aren't shy. You only have three chances at finding what you've come all this way for.</p><button id='strBtn'>Start Game</button></div>"); 
+const startDiv = $("<div id='startDiv'><p>After obtaining the map, you followed it to a remote island and go on a perlous journey to find the location of the treasure. You've now reached the place where it ought to be, but will have to search around in order to find it. Use the arrow keys on your keyboard to move throughout the jungle to locate the crystal - but be careful! Poisonous snakes inhabit the island and aren't shy. You only have three chances at finding what you've come all this way for.</p><button id='strBtn'>Start</button></div>"); 
 
 $('#main-div2').prepend(startDiv);
 

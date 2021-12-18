@@ -41,6 +41,7 @@ main {
     width: 47vw;
     height: 50vh;
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 2vw;
@@ -50,10 +51,53 @@ main {
     display: flex;
 }
 
+button {
+    background-color: black;
+    color: white;
+    font-size: 1.5em;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.tasks {
+    font-weight: bold;
+    color: greenyellow;
+}
+
+button:hover {
+    cursor: pointer;
+    color: yellow;
+    border: 2px solid yellow;
+}
+
+a {
+    background-color: black;
+    color: white;
+    font-size: 1.5em;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: yellow;
+    border: 2px solid yellow;
+}
+
+#start-over:hover{
+    color: yellow;
+    border: 5px solid yellow;
+}
+
 #buttons button { 
     margin: 1vw;
-    padding: 1vw;
     border-radius: 5px;
+}
+
+#accept {
+    margin: 10px;
 }
 
 #timer {
@@ -80,8 +124,8 @@ main {
 #box {
     position: absolute;
     width: 5vw;
-    height: 4vh;
-    background-image: url(https://i.imgur.com/JqLoNGd.png);
+    height: 8vh;
+    background-image: url(https://i.imgur.com/wZV2IfH.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-width: 2px;
@@ -174,11 +218,6 @@ main {
     z-index: 1;
 }
 
-#start-over-btn {
-    border: 2px solid black; 
-    text-decoration: none;
-}
-
 #try-again {
     border: 5px solid greenyellow;
     background-color: black;
@@ -233,7 +272,7 @@ nav div {
 }
 
 #foundTres img {
-    width: 40vw;
+    width: 10vw;
 }
 
 #foundTres {
@@ -313,6 +352,7 @@ body {
     width: 30vw;
     height: 30vh;
     z-index: 1;
+    padding: 1vw;
 }
 
 #you-lose {
@@ -332,4 +372,5 @@ body {
     height: 30vh;
     z-index: 1;
 }
+
 

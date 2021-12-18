@@ -12,9 +12,9 @@ const caught = () => {
 
     $('#header').html('<h2>Oh no, you were caught!!</h2>')
 
-    $('#main-div').html('<button id="start-over" onClick="window.location.reload();">Start Over</button>');
+    $('#main-div').html('<button id="start-over" onClick="window.location.reload();">Try Again</button>');
 
-    $('#start-over').css({'position': 'relative', 'top': '30%', 'padding': '1em', 'font-size': '3em'});
+    $('#start-over').css({'font-size': '2em'});
 };
 
 function startTimer(duration, display) {
@@ -59,6 +59,7 @@ const foundMap = () => {
 
 const startGame = (e) => {
     e.stopPropagation;
+    $('#accept').remove();
     $('#main-div').html('');
     $('#main-div').css({
         'background-color': 'black',
@@ -67,24 +68,24 @@ const startGame = (e) => {
     });
 
     $('#header').html(
-        '<h2>Quick! Locate the treasure map in your rivals office.<br> You only have <span id="timer">00:30</span> seconds.</h2>'
+        `<h2>Quick! Locate a map in your father's study before your mom sees you.<br> You only have <span id="timer">00:30</span> seconds.</h2>`
         );
 
 
     const map = $('<div id="map"><img src="https://i.imgur.com/qPoeCZN.png"></div>');
 
     $('#main-div').append(map);
-    $('#map img').css({'z-index': '0', 'width': '3vw', 'position': 'relative', 'top': '8vh', 'left': '5vw'});
+    $('#map img').css({'z-index': '0', 'width': '3vw', 'position': 'relative', 'top': '-12vh', 'left': '4vw'});
 
     const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg"></div>');
     $('#main-div').append(pictureDiv);
 
-    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '-.5vh', 'left': '4vw'});
+    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '-20vh', 'left': '4vw'});
 
     $('#picture').click(function(e){
         e.stopPropagation;
         //move picture 
-        $('#picture img').animate({left: '9vw'}, 500);
+        $('#picture img').animate({left: '7vw'}, 500);
         $('#map img').click(foundMap);  
     })
 

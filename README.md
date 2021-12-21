@@ -1,6 +1,12 @@
 # Adventure
 
 ## Concept:
+
+User Story:
+As a player of this game, you would expect to be guided through the experience and be given just enough information to know what to do but not give it away/spoil the experience.
+You want it to feel like an adventure and like you don't know what will happen next. I also want to be told what todo so I can win the game.
+The buttons and layout should feel intuitive.
+
 Explain the concept of the application or game. Include instructions and how to win/lose.
 Thw objective of the game is to firts locate the treasure map, nativgate through the jungle to find the treasure, defeat your enemy, and then return with what you were looking for. You have 30 seconds to do this or else you need to start over. 
 
@@ -33,8 +39,3 @@ Add anything else you would like us to know
 
 ## App Demo
 Link to GitHub project (i.e. - username.github.io)
-
-User Story:
-As a player of this game, you would expect to be guided through the experience and be given just enough information to know what to do but not give it away/spoil the experience.
-You want it to feel like an adventure and like you don't know what will happen next. I also want to be told what todo so I can win the game.
-The buttons and layout should feel intuitive.

@@ -83,7 +83,7 @@ const startGame = (e) => {
 
     //Got from https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
     jQuery(function ($) {
-        var thirtySec = 5 * 1,
+        var thirtySec = 30 * 1,
             display = $('#timer');
         startTimer( thirtySec, display);
     });

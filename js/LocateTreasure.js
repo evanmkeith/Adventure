@@ -155,7 +155,7 @@ const startGame = () => {
             nearSnake();
         } else {
             $('header h1').html('Locate the crystal!');
-            $('header h1').css({'color': 'lightgreen'});
+            $('header h1').css({'color': '#850001'});
             changeBoxBorderColor('black');
         } 
     
@@ -209,7 +209,7 @@ const startGame = () => {
         ) {
             box.css({'border-color': 'green'});
             $('header h1').html("Congratulations! You've located the crystal!!");
-            $('header h1').css({'color': 'green'});
+            $('header h1').css({'color': '#850001'});
             clearInterval(gameInterval);
             foundTreasure();
         };
@@ -217,7 +217,7 @@ const startGame = () => {
     }, 20);
 }
 
-const startDiv = $("<div id='startDiv'><p>After obtaining the map, you followed it to a remote island and go on a perlous journey to find the location of the treasure. You've now reached the place where it ought to be, but will have to search around in order to find it. Use the arrow keys on your keyboard to move throughout the jungle to locate the crystal - but be careful! Poisonous snakes inhabit the island and aren't shy. You only have three chances at finding what you've come all this way for.</p><button id='strBtn'>Start</button></div>"); 
+const startDiv = $("<div id='startDiv'><p>After obtaining the map, you followed it to a remote island and go on a perlous journey to find the location of the treasure. You've now reached the place where it ought to be, but will have to search around in order to find it. Use the arrow keys on your keyboard to move throughout the jungle to locate the crystal - but be careful! Poisonous snakes inhabit the island and aren't shy. You only have three chances at finding what you've come all this way for.</p><button id='strBtn'>></button></div>"); 
 
 $('#main-div2').prepend(startDiv);
 

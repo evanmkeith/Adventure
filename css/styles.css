@@ -17,13 +17,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:black;
-    color: lightgreen;
+    background-color:rgb(0, 0, 0, .75);
+    color: #E10200;
     position: relative;
+    font-family: 'Playfair Display SC', serif;
     top: 3vh;
-    height: 10vh;
-    width: 90vw;
-    border: 5px solid greenyellow; 
+    padding: 0vw 2vw 0vw 2vw;
+    background-blend-mode: multiply;
     border-radius: 10px; 
 }
 
@@ -36,12 +36,12 @@ main {
 }
 
 #main-div {
-    border: 5px solid greenyellow;
+    border: 2px solid #850001;
     border-radius: 10px;
     background-color: black;
-    color: white;
+    color: lightgrey;
     width: 47vw;
-    height: 50vh;
+    height: 53vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,61 +49,71 @@ main {
     top: -2vh;
     flex-direction: column;
     padding: 2vw;
+    font-size: 1vw;
+    font-family: 'Adamina', serif;
+    user-select: none;
 }
 
-#buttons {
-    display: flex;
+#main-div ul {
+    list-style-type: none;
 }
 
 button {
-    background-color: black;
-    color: white;
-    font-size: 1em;
-    border: 2px solid white;
+    background: transparent;
+    color: #E10200;
+    font-size: 2vw;
     border-radius: 5px;
+    padding: 0 10px 0 10px;
+    font-family: 'Adamina', serif;
 }
 
 .tasks {
     font-weight: bold;
-    color: greenyellow;
+    color: #E10200;
 }
 
 button:hover {
     cursor: pointer;
-    color: yellow;
-    border: 2px solid yellow;
+    border: 2px solid lightgrey;
 }
 
 a {
     background-color: black;
-    color: white;
+    color: #E10200;
     font-size: 1.5em;
-    border: 2px solid white;
     padding: 5px;
     border-radius: 5px;
     text-decoration: none;
+    font-family: 'Adamina', serif;
+    border: 2px solid transparent;
 }
 
 a:hover {
     cursor: pointer;
-    color: yellow;
-    border: 2px solid yellow;
-}
-
-#start-over:hover{
-    color: yellow;
-    border: 5px solid yellow;
+    border: 2px solid lightgrey;
 }
 
 #accept {
     margin: 10px;
 }
 
+.time {
+    color: #E10200;
+    border: 1px solid #E10200;
+    font-family: 'Adamina', serif;
+    width: 15vw;
+}
+
 #timer {
-    color: yellow;
-    border: 1px solid yellow;
+    color: #E10200;
+    font-family: 'Adamina', serif;
     margin: 3px;
     padding: 2px;
+}
+
+#try-again {
+    width: 2vw;
+    font-family: 'Adamina', serif;
 }
 
 #map img:hover {
@@ -114,14 +124,15 @@ a:hover {
 
 #main-div2 {
     background-color: black;
-    color: white;
+    color: lightgrey;
     background-image: url(https://i.imgur.com/3W3pzdA.png);
-    border: 5px solid greenyellow;
+    border: 2px solid #850001;
     width: 68vw;
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Adamina', serif;
 }
 
 #box {
@@ -208,9 +219,9 @@ a:hover {
 }
 
 #start-over {
-    border: 5px solid greenyellow;
+    border: 2px solid #850001;
     background-color: black;
-    color: white;
+    color: lightgrey;
     width: 25vw;
     height: 20vh;
     border-radius: 5px;
@@ -222,7 +233,7 @@ a:hover {
 }
 
 #try-again {
-    border: 5px solid greenyellow;
+    border: 2px solid #850001;
     background-color: black;
     width: 25vw;
     height: 40vh;
@@ -245,8 +256,8 @@ nav {
 }
 
 nav div {
-    border: 2px solid greenyellow;
-    color: white;
+    border: 2px solid #850001;
+    color: lightgrey;
     position: relative; 
     top: 5vh;
     background-color: black;
@@ -256,6 +267,7 @@ nav div {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Adamina', serif;
 }
 
 #startDiv {
@@ -265,13 +277,14 @@ nav div {
     text-align: center;
     flex-direction: column;
     background-color: black;
-    color: white;
+    color: lightgrey;
     z-index: 1;
     border-radius: 5px;
-    border: 2px solid greenyellow;
+    border: 2px solid #850001;
     width: 50vw;
     height: 30vh;
     padding: 2vh;
+    font-family: 'Adamina', serif;
 }
 
 #foundTres img {
@@ -286,7 +299,7 @@ nav div {
     align-items: center;
     padding: 2vw;
     border-radius: 5px;
-    border: 2px solid greenyellow;
+    border: 2px solid #850001;
     z-index: 1;
 }
 
@@ -297,9 +310,9 @@ body {
 }
 
 #main-div3 {
-    border: 4px solid greenyellow;
+    border: 2px solid #850001;
     border-radius: 15px;
-    background-color: green;
+    background-color: black;
     background-image: url(https://i.imgur.com/3W3pzdA.png);
     width: 68vw;
     height: 70vh;
@@ -309,6 +322,7 @@ body {
     position: relative;
     left: 100vw;
     overflow: hidden;
+    font-family: 'Adamina', serif;
 }
 
 #indi {
@@ -348,14 +362,15 @@ body {
     position: absolute;
     top: 25vh;
     left: 50vw;
-    border: 5px solid greenyellow;
+    border: 5px solid #850001;
     background-color: black;
-    color: white;
+    color: lightgrey;
     border-radius: 5px;
     width: 30vw;
     height: 30vh;
     z-index: 1;
     padding: 1vw;
+    font-family: 'Adamina', serif;
 }
 
 #you-lose {
@@ -367,21 +382,22 @@ body {
     position: absolute;
     top: 25vh;
     left: 50vw;
-    border: 5px solid greenyellow;
+    border: 2px solid #850001;
     background-color: black;
-    color: white;
+    color: lightgrey;
     border-radius: 5px;
     width: 30vw;
     height: 30vh;
     z-index: 1;
+    font-family: 'Adamina', serif;
 }
 
 
 /*Find Father*/
 #main-div4 {
-    border: 4px solid greenyellow;
+    border: 2px solid #850001;
     border-radius: 15px;
-    background-color: green;
+    background-color: black;
     background-image: url(https://i.imgur.com/3W3pzdA.png);
     width: 68vw;
     height: 70vh;
@@ -391,14 +407,10 @@ body {
     overflow: hidden;
     position: relative;
     top: 6vh;
+    font-family: 'Adamina', serif;
 }
 
 #indiAfter {
-    /*background-image: url('https://i.imgur.com/uf3BIC8.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 15vw;
-    height: 35vh;*/
     position: relative;
     top: 15vh;
     left: -25vw;
@@ -425,14 +437,15 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 4px solid greenyellow;
+    border: 2px solid #850001;
     border-radius: 15px;
     background-color: black;
-    color: white;
+    color: lightgrey;
     width: 30vw;
     height: 25vh;
     position: absolute; 
     top: 15vh;
     left: 50vw;
     padding: 2vh;
+    font-family: 'Adamina', serif;
 }

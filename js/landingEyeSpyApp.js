@@ -1,14 +1,14 @@
 let mapFound = false;
 
 const caught = () => {
-    $('.lives').remove();
+    $('.time').remove();
     $('#main-div').css({});
     
     $('#main-div').css({'background-image':'url()','background-color': 'black'});
 
     $('#header').html('<h2>Oh no, you were caught!!</h2>')
 
-    $('#main-div').html('<button id="start-over" onClick="window.location.reload()">Try Again</button>');
+    $('#main-div').html('<a href="./landingEyeSpy.html">Try Again</a>');
 };
 
 function startTimer(duration, display) {
@@ -34,15 +34,17 @@ function startTimer(duration, display) {
 
 const foundMap = () => {
     mapFound = true;
-    $('.lives').remove();
+    $('.time').remove();
     $('#main-div').css({'top': '0'});
 
     $('#header').html("<h2>You found the map!</h2>");
     $('#main-div').html('');
     $('#main-div').css({'background-image': 'url(https://i.imgur.com/qPoeCZN.png)'});
 
-    $('#main').append($('<a id="continue" href="./locateTreasure.html">Continue</a>')); 
-    
+    if($('#main').children().length < 2){
+        $('#main').append($('<a id="continue" href="./locateTreasure.html">></a>')); 
+    };
+
     $('#continue').css({'margin': '10px'});
     $('#main').css({'flex-direction': 'column'});
 }
@@ -60,7 +62,7 @@ const startGame = (e) => {
     });
 
     $('#header').html(
-        `<h2>Quick! Locate a map in your father's study before your mom sees you.<br> You only have 30 seconds.</h2>`
+        `<h2>Quick! Locate a map in your father's study before your mom sees you.</h2>`
         );
 
 
@@ -72,9 +74,9 @@ const startGame = (e) => {
     const pictureDiv = $('<div id="picture"><img src="https://i.imgur.com/PCVWNio.jpg"></div>');
     $('#main-div').append(pictureDiv);
 
-    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '-20vh', 'left': '4vw'});
+    $('#picture img').css({'width': '4vw', 'position': 'relative', 'top': '-19vh', 'left': '4.4vw'});
 
-    $('#picture').click(function(e){
+    $('#picture img').click(function(e){
         e.stopPropagation;
         //move picture 
         $('#picture img').animate({left: '7vw'}, 500);
@@ -90,7 +92,7 @@ const startGame = (e) => {
 };
 
 const timer = () => {
-    const timer = $(`<div class="lives"><h3>Time left: <span id="timer">00:30</span></h3></div>`);
+    const timer = $(`<div class="time"><h3>Time left: <span id="timer">00:30</span></h3></div>`);
     $('nav').append(timer);
 }
 

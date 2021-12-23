@@ -18,7 +18,7 @@ const sad = () => {
     $('header').remove();
     $('#indiAfter img').attr('src', 'https://i.imgur.com/3SwGG7I.png'); 
     
-    const saDiv = $(`<div id="saDiv"><p>Upon arriving, you see that your father infact did not survive all those years ago. Realizing that you've done this all in hopes to see your father again, you collect your father's things and leave the stone with him - so his dream of finding the stone could be realized.</p><br><p>Press enter to contine.</p></div>`)
+    const saDiv = $(`<div id="saDiv"><p>Upon arriving, you see that your father infact did not survive all those years ago. Realizing that you only started this journey with the hope of seeing your dad again, you collect your father's things and leave the stone with him - so his dream of finding the stone can finally be realized.</p><br><p>press enter to contine</p></div>`)
     $('#main').append(saDiv);
 
     $(document).on('keypress',function(e) {

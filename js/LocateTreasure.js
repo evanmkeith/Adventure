@@ -33,7 +33,7 @@ const bitenBySnake = () => {
 };
 
 const foundTreasure = () =>{
-    const found = $("<div id='foundTres'><img src='https://i.imgur.com/JI8QP5W.png'><p>You've done it! You've finally found the crystal! But what's this, you hear something behind you...</p><button id='continue'>Continue</button></div>"); 
+    const found = $("<div id='foundTres'><img src='https://i.imgur.com/JI8QP5W.png'><p>You've done it! You've finally found the crystal! But what's this, you hear something behind you...</p><button id='continue'>></button></div>"); 
 
     $('#main-div2').prepend(found);
 
